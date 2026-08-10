@@ -66,3 +66,7 @@ npm run dev:demo
 | ![知华科技微信咨询二维码一](docs/images/zhuatech-wechat-consulting.png) | ![知华科技微信咨询二维码二](docs/images/zhuatech-wechat-consulting-2.png) |
 
 关键词：SOC 源码、安全运营中心、SIEM 事件管理、威胁情报、事件响应、Java SOC、Vue 安全平台、知华科技。
+
+## 安全事件升级决策
+
+新增 `POST /api/soc/insights/incident-escalation`，综合事件等级、受影响资产、特权账户、持续外泄、遏制状态和响应 SLA，返回 `MONITOR`、`ESCALATE` 或 `CRITICAL_ESCALATION`。
