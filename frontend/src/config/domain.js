@@ -1,4 +1,4 @@
-/* Copyright 2026 上海如静知华信息科技有限公司 */
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 export const domain={
  code:'SOC',systemName:'安全运营中心平台',englishName:'SECURITY OPERATIONS CENTER',theme:{primary:'#315978',dark:'#1e2d3a',accent:'#c67643'},
  workspace:'信息安全部 / 安全运营中心',fieldWorkspace:'威胁监测一组',period:'2026-08-01 · 日班',liveText:'安全事件流于 10:42 更新',fieldContextLabel:'当前值班组',fieldContext:'日班 · L2 分析',fieldUser:'陆遥',fieldRole:'安全分析师',adminUser:'何谨',adminRole:'安全运营经理',
