@@ -70,3 +70,7 @@ npm run dev:demo
 ## 安全事件升级决策
 
 新增 `POST /api/soc/insights/incident-escalation`，综合事件等级、受影响资产、特权账户、持续外泄、遏制状态和响应 SLA，返回 `MONITOR`、`ESCALATE` 或 `CRITICAL_ESCALATION`。
+
+## 企业级安全事件结案
+
+新增 `POST /api/enterprise/soc/incident-closure`，覆盖遏制、取证、范围、清除、恢复、通知、根因和复盘闭环，返回 `CLOSE / REVIEW / BLOCKED`。详见 [事件结案说明](docs/ENTERPRISE_INCIDENT_CLOSURE.md)。
