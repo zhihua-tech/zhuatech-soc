@@ -8,8 +8,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class SecurityIncidentClosureService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Assessment assess(Request request) {
         List<String> blockers = new ArrayList<>();
         List<String> actions = new ArrayList<>();
@@ -33,10 +39,19 @@ public class SecurityIncidentClosureService {
         return new Assessment(Decision.CLOSE, blockers, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String incidentId, boolean containmentVerified, boolean evidencePreserved,
                           boolean scopeConfirmed, boolean eradicationVerified, boolean recoveryMonitored,
                           boolean notificationRequired, boolean notificationCompleted, boolean rootCauseApproved,
                           boolean lessonsShared, @Min(0) int openCriticalActions) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Assessment(Decision decision, List<String> blockers, List<String> actions) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Decision { CLOSE, REVIEW, BLOCKED }
 }
