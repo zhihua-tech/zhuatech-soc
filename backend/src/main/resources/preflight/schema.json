@@ -1,0 +1,94 @@
+{
+  "slug": "soc",
+  "title": "安全事件关闭证据与告警数量预检",
+  "fields": [
+    {
+      "key": "case_no",
+      "label": "事件编号",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "status",
+      "label": "状态",
+      "type": "ENUM",
+      "length": 200,
+      "options": [
+        "OPEN",
+        "INVESTIGATING",
+        "CLOSED"
+      ]
+    },
+    {
+      "key": "evidence",
+      "label": "证据状态",
+      "type": "ENUM",
+      "length": 200,
+      "options": [
+        "PENDING",
+        "VERIFIED"
+      ]
+    },
+    {
+      "key": "total_alerts",
+      "label": "告警总数",
+      "type": "INTEGER",
+      "length": 200,
+      "scale": 0
+    },
+    {
+      "key": "resolved_alerts",
+      "label": "已处置数",
+      "type": "INTEGER",
+      "length": 200,
+      "scale": 0
+    },
+    {
+      "key": "owner",
+      "label": "责任人",
+      "type": "ID",
+      "length": 200
+    }
+  ],
+  "unique": [
+    [
+      "case_no"
+    ]
+  ],
+  "rules": [
+    {
+      "op": "IF_EQ",
+      "args": [
+        "status",
+        "CLOSED",
+        "evidence",
+        "VERIFIED"
+      ],
+      "code": "CLOSURE_EVIDENCE",
+      "message": "已关闭事件必须具有已验证证据",
+      "bad": {
+        "evidence": "PENDING"
+      }
+    },
+    {
+      "op": "LE",
+      "args": [
+        "resolved_alerts",
+        "total_alerts"
+      ],
+      "code": "SOC_ALERT_COUNT",
+      "message": "已处置告警不能超过告警总数",
+      "bad": {
+        "resolved_alerts": "11"
+      }
+    }
+  ],
+  "sampleCsv": "case_no,status,evidence,total_alerts,resolved_alerts,owner\nSOC-001,CLOSED,VERIFIED,10,10,SOC-01\n",
+  "limits": {
+    "rows": 500,
+    "bytes": 262144,
+    "columns": 32,
+    "cellCharacters": 4000
+  },
+  "scope": "Read-only batch validation; no persistence, reference-master lookup or full production certification."
+}
