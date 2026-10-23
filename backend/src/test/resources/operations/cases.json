@@ -1,0 +1,50 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "REVIEW",
+      "urgentReviewerMinutes": "#150",
+      "totalReviewerMinutes": "#250",
+      "shortfallMinutes": "#10"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "urgentAlerts": "17"
+    },
+    "expected": {
+      "decision": "HOLD"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "normalAlerts": "18"
+    },
+    "expected": {
+      "decision": "PASS",
+      "shortfallMinutes": "#0"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "analysts": "0"
+    },
+    "expected": {
+      "decision": "HOLD"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "urgentAlerts": "0",
+      "normalAlerts": "0"
+    },
+    "expected": {
+      "decision": "PASS"
+    },
+    "error": false
+  }
+]
